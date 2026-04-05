@@ -1,0 +1,42 @@
+{
+  "name": "al-multaqa",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "dev:turbo": "next dev --turbopack --hostname 127.0.0.1",
+    "dev:3001": "next dev --hostname 127.0.0.1 -p 3001",
+    "dev:3010": "next dev --hostname 127.0.0.1 -p 3010",
+    "build": "next build",
+    "build:turbo": "next build --turbopack",
+    "start": "next start --hostname 127.0.0.1",
+    "lint": "eslint",
+    "backup:desktop": "bash scripts/backup-site-to-desktop.sh",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "db:push": "prisma db push",
+    "export:standalone": "bash scripts/package-standalone.sh",
+    "export:source": "bash scripts/package-source-archive.sh",
+    "export:github-docs": "bash scripts/export-github-ready-to-documents.sh"
+  },
+  "dependencies": {
+    "@fontsource/ibm-plex-sans-arabic": "^5.2.9",
+    "@prisma/client": "^6.16.1",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-hook-form": "^7.62.0",
+    "next": "15.5.6"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4",
+    "prisma": "^6.16.1",
+    "eslint": "^9",
+    "eslint-config-next": "15.5.6",
+    "@eslint/eslintrc": "^3"
+  }
+}
