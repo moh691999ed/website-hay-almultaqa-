@@ -1,0 +1,22 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#114147"/>
+      <stop offset="1" stop-color="#255E60"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(420 260) rotate(35) scale(900 520)">
+      <stop stop-color="#937A63" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#937A63" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+  <path d="M330 380H1270V760H330V380Z" fill="white" fill-opacity="0.08"/>
+  <path d="M330 380H1270V455H330V380Z" fill="white" fill-opacity="0.10"/>
+  <path d="M430 520H720V760H430V520Z" fill="white" fill-opacity="0.06"/>
+  <path d="M810 520H1170V660H810V520Z" fill="white" fill-opacity="0.06"/>
+  <path d="M810 690H1170V760H810V690Z" fill="white" fill-opacity="0.06"/>
+  <path d="M330 760H1270" stroke="#937A63" stroke-opacity="0.55" stroke-width="3"/>
+  <path d="M385 455L435 380M465 455L515 380M545 455L595 380M625 455L675 380M705 455L755 380M785 455L835 380M865 455L915 380M945 455L995 380M1025 455L1075 380M1105 455L1155 380M1185 455L1235 380" stroke="#F8F8F6" stroke-opacity="0.20" stroke-width="8" stroke-linecap="round"/>
+</svg>
+

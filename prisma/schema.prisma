@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum PropertyType {
+  villas
+  shops
+  land
+}
+
+enum LeadStatus {
+  NEW
+  RECEIVED
+  IN_PROGRESS
+  REJECTED
+}
+
+model Lead {
+  id           String       @id @default(cuid())
+  name         String
+  phone        String
+  email        String
+  propertyType PropertyType
+  status       LeadStatus   @default(NEW)
+  details      Json
+  createdAt    DateTime     @default(now())
+
+  @@index([createdAt])
+  @@index([email])
+  @@index([propertyType])
+  @@index([status])
+}
+
+/** تايب فلل — slug ثابت (type-1 …) للربط مع الواجهة */
+model VillaType {
+  id              String        @id @default(cuid())
+  slug            String        @unique
+  sortOrder       Int           @default(0)
+  titleAr         String
+  titleEn         String
+  descriptionAr   String
+  descriptionEn   String
+  options         VillaOption[]
+}
+
+/** خيار أ / ب لكل تايب */
+model VillaOption {
+  id           String    @id @default(cuid())
+  villaTypeId  String
+  villaType    VillaType @relation(fields: [villaTypeId], references: [id], onDelete: Cascade)
+  optionKey    String
+  titleAr      String
+  titleEn      String
+  priceLabelAr String
+  priceLabelEn String
+  areaLabelAr  String
+  areaLabelEn  String
+  bedrooms     Int       @default(3)
+  roomsLabelAr String?
+  roomsLabelEn String?
+  images       Json
+
+  @@unique([villaTypeId, optionKey])
+}
+
+/** عروض الأراضي في الصفحة الرئيسية ومسار الاهتمام */
+model LandOffering {
+  id          String  @id @default(cuid())
+  sortOrder   Int     @default(0)
+  active      Boolean @default(true)
+  titleAr     String
+  titleEn     String
+  subtitleAr  String
+  subtitleEn  String
+  imageSrc    String
+  overlayCss  String?
+}
